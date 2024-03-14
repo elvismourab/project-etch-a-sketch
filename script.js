@@ -15,3 +15,11 @@ for (let i = 0; i <= windowHeight; i++) {
         container.appendChild(square);
     }
 }
+
+// Mouse move event - paint
+const mouseMove = document.getElementsByClassName("square");
+for (i = 0; i < mouseMove.length; i++) {
+    mouseMove[i].addEventListener('mouseover', function() {
+        this.style.backgroundColor = "black";
+    })
+}
