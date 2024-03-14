@@ -4,24 +4,12 @@ const container = document.createElement("div");
 container.setAttribute("class", "container");
 body.appendChild(container);
 
-/* const square = document.createElement("div");
-square.setAttribute("class", "square");
-container.appendChild(square);
+//Create square div's inside container div
+let windowHeight = Math.floor(window.innerHeight / 16);
+let windowWidth = Math.floor(window.innerWidth / 16);
 
-for (let i = 0; i <= 4276; i++) {
-    const square = document.createElement("div");
-    square.setAttribute("class", "square");
-    container.appendChild(square);
-} */
-
-const childHeight = 16;
-const childWidth = 16;
-
-let numChildHeight = Math.floor(container.offsetHeight / childHeight); console.log(numChildHeight);
-let numChildWidth = Math.floor(container.offsetWidth / childWidth); console.log(numChildWidth);
-
-for (let i = 0; i <= numChildHeight; i++) {
-    for (let j = 0; j <= numChildWidth; j++) {
+for (let i = 0; i <= windowHeight; i++) {
+    for (let j = 0; j <= windowWidth; j++) {
         const square = document.createElement("div");
         square.setAttribute("class", "square");
         container.appendChild(square);
