@@ -23,3 +23,9 @@ for (i = 0; i < mouseMove.length; i++) {
         this.style.backgroundColor = "black";
     })
 }
+
+// 4 - button / div size
+const btn = document.createElement("button");
+btn.textContent = "NEW GRID";
+btn.setAttribute("class", "newGrid");
+body.prepend(btn);
