@@ -28,4 +28,13 @@ for (i = 0; i < mouseMove.length; i++) {
 const btn = document.createElement("button");
 btn.textContent = "NEW GRID";
 btn.setAttribute("class", "newGrid");
+
+btn.addEventListener("click", function() {
+    let squares = 16;
+    do {
+        squares = prompt("Define the number of squares per side for the new grid (<= 100): ");
+        if (squares > 100) alert("The value should be <= 100");
+    } while (squares > 100);
+})
+
 body.prepend(btn);
