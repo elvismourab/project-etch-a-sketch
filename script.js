@@ -1,40 +1,27 @@
 const body = document.querySelector("body");
 
 const container = document.createElement("div");
-container.setAttribute("class", "container");
+container.setAttribute("id", "container");
 body.appendChild(container);
 
-//Create square div's inside container div
-let containerHeight = Math.floor(container.offsetHeight / 16);
-let containerWidth = Math.floor(container.offsetWidth / 16);
+/* const square = document.createElement("div");
+square.setAttribute("id", "square");
 
-for (let i = 0; i <= containerHeight; i++) {
-    for (let j = 0; j <= containerWidth; j++) {
-        const square = document.createElement("div");
-        square.setAttribute("class", "square");
-        container.appendChild(square);
-    }
-}
+square.style.height = (container.offsetHeight / 16) + "px";
+square.style.width = (container.offsetWidth / 16) + "px";
 
-// Mouse move event - paint
-const mouseMove = document.getElementsByClassName("square");
-for (i = 0; i < mouseMove.length; i++) {
-    mouseMove[i].addEventListener('mouseover', function() {
-        this.style.backgroundColor = "black";
-    })
-}
+container.appendChild(square); */
 
-// 4 - button / div size
-const btn = document.createElement("button");
-btn.textContent = "NEW GRID";
-btn.setAttribute("class", "newGrid");
+//
+let count = 0;
 
-btn.addEventListener("click", function() {
-    let squares = 16;
-    do {
-        squares = prompt("Define the number of squares per side for the new grid (<= 100): ");
-        if (squares > 100) alert("The value should be <= 100");
-    } while (squares > 100);
-})
-
-body.prepend(btn);
+do {
+    const square = document.createElement("div");
+    square.setAttribute("id", "square");
+    
+    square.style.height = (container.offsetHeight / 16) + "px";
+    square.style.width = (container.offsetWidth / 16) + "px";
+    
+    container.appendChild(square);
+    count++;
+} while (count < 16); // 16 * 16
