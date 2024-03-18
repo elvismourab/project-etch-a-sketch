@@ -9,5 +9,4 @@
 .square {
     border: 1px solid lightgray;
     display: flex;
-    flex: 1 1 calc(100% / 16);
 }

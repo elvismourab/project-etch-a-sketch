@@ -15,6 +15,9 @@ function gridStart(grid = 16) {
             
             square.style.height = (container.offsetHeight / grid) + "px";
             square.style.width = (container.offsetWidth / grid) + "px";
+
+            square.style.flex = `1 1 calc(100% / ${grid})`;
+            console.log(square.style.flex);
             
             container.appendChild(square);
         }
