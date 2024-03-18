@@ -1,17 +1,16 @@
 body {
     display: flex;
+    justify-content: center;
 }
 
 .container {
     border: 4px solid darkred;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    height: 800px;
+    width: 1200px;
     display: flex;
-    align-content: flex-start;
     flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .square {
