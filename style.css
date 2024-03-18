@@ -2,11 +2,11 @@
     border: 4px solid darkred;
     height: 800px;
     width: 800px;
-    display: inline-flex;
-/*     flex-wrap: wrap;
- */}
+    display: flex;
+    flex-wrap: wrap;
+}
 
-#square {
+.square {
     border: 1px solid lightgray;
-    flex-grow: 1;
+    flex: 1 0 calc(100% / 16);
 }
