@@ -5,11 +5,11 @@ container.setAttribute("class", "container");
 body.appendChild(container);
 
 //Create square div's inside container div
-let windowHeight = Math.floor(window.innerHeight / 16);
-let windowWidth = Math.floor(window.innerWidth / 16);
+let containerHeight = Math.floor(container.offsetHeight / 16);
+let containerWidth = Math.floor(container.offsetWidth / 16);
 
-for (let i = 0; i <= windowHeight; i++) {
-    for (let j = 0; j <= windowWidth; j++) {
+for (let i = 0; i <= containerHeight; i++) {
+    for (let j = 0; j <= containerWidth; j++) {
         const square = document.createElement("div");
         square.setAttribute("class", "square");
         container.appendChild(square);
