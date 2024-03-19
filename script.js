@@ -7,6 +7,9 @@ body.appendChild(container);
 
 // 2. 16x16 grid
 function gridStart(grid = 16) {
+
+    const fragment = document.createDocumentFragment();
+
     for (let i = 0; i < grid; i++) {
         for (let j = 0; j < grid; j++) {
             const square = document.createElement("div");
@@ -16,8 +19,11 @@ function gridStart(grid = 16) {
             square.style.width = (container.offsetWidth / grid) + "px";
             square.style.flex = `1 1 calc(100% / ${grid})`;
 
-            container.appendChild(square);
+            fragment.appendChild(square);
         }
+
+        container.appendChild(fragment);
+
     }
 }
 
