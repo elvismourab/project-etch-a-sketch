@@ -28,7 +28,7 @@ function gridStart(grid = 16) {
 }
 
 // 3. Mouse move event - paint
-function paint() {
+function paintBlack() {
     const mouseMove = document.getElementsByClassName("square");
     for (i = 0; i < mouseMove.length; i++) {
         mouseMove[i].addEventListener('mouseover', function () {
@@ -38,9 +38,9 @@ function paint() {
 }
 
 // 4 - button / div size
-const btn = document.createElement("button");
-btn.textContent = "NEW GRID";
-btn.addEventListener("click", function () {
+const btnGrid = document.createElement("button");
+btnGrid.textContent = "NEW GRID";
+btnGrid.addEventListener("click", function () {
     let squareSize = 16;
     do {
         squareSize = prompt("Define the number of squareSize per side for the new grid (<= 100): ");
@@ -50,11 +50,30 @@ btn.addEventListener("click", function () {
     //container.innerHTML = "";
     container.textContent = "";
     gridStart(squareSize);
-    paint();
+    paintBlack();
 })
 
-body.prepend(btn);
+body.prepend(btnGrid);
+
+// button - random color
+const btnRandom = document.createElement("button");
+btnRandom.textContent = "RAINBOW";
+btnRandom.addEventListener("click", function () {
+    const mouseMove = document.getElementsByClassName("square");
+    for (i = 0; i < mouseMove.length; i++) {
+        mouseMove[i].addEventListener('mouseover', function () {
+            this.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        })
+    }
+})
+
+body.insertBefore(btnRandom, container);
 
 // START
 gridStart();
-paint();
+paintBlack();
+
+//extra-credit
+for (i = 0; i <= 5; i++) {
+    console.log('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+}
