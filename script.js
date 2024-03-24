@@ -27,17 +27,7 @@ function gridStart(grid = 16) {
     }
 }
 
-// 3. Mouse move event - paint
-function paintBlack() {
-    const mouseMove = document.getElementsByClassName("square");
-    for (i = 0; i < mouseMove.length; i++) {
-        mouseMove[i].addEventListener('mouseover', function () {
-            this.style.backgroundColor = "black";
-        })
-    }
-}
-
-// 4 - button / div size
+// 4 - button - div size
 const btnGrid = document.createElement("button");
 btnGrid.textContent = "NEW GRID";
 btnGrid.addEventListener("click", function () {
@@ -50,14 +40,28 @@ btnGrid.addEventListener("click", function () {
     //container.innerHTML = "";
     container.textContent = "";
     gridStart(squareSize);
-    paintBlack();
+
 })
 
-body.prepend(btnGrid);
+body.insertBefore(btnGrid, container);
+
+// button - black color
+const btnBlack = document.createElement("button");
+btnBlack.textContent = "BLACK PEN";
+btnBlack.addEventListener("click", function() {
+    const mouseMove = document.getElementsByClassName("square");
+    for (i = 0; i < mouseMove.length; i++) {
+        mouseMove[i].addEventListener('mouseover', function () {
+            this.style.backgroundColor = "black";
+        })
+    }
+})
+
+body.insertBefore(btnBlack, container);
 
 // button - random color
 const btnRandom = document.createElement("button");
-btnRandom.textContent = "RAINBOW";
+btnRandom.textContent = "RAINBOW PEN";
 btnRandom.addEventListener("click", function () {
     const mouseMove = document.getElementsByClassName("square");
     for (i = 0; i < mouseMove.length; i++) {
@@ -71,7 +75,7 @@ body.insertBefore(btnRandom, container);
 
 /* // button - darkening
 const btnDarkening = document.createElement("button");
-btnDarkening.textContent = "DARKENING";
+btnDarkening.textContent = "DARKENING PEN";
 btnDarkening.addEventListener("click", function() {
     const mouseMove = document.getElementsByClassName("square");
     for (i = 0; i < mouseMove.length; i++) {
@@ -89,9 +93,3 @@ body.insertBefore(btnDarkening, container);
 
 // START
 gridStart();
-paintBlack();
-
-//extra-credit
-for (i = 0; i <= 5; i++) {
-    console.log('#'+(Math.random()*0xFFFFFF<<0).toString(16));
-}
