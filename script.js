@@ -69,6 +69,24 @@ btnRandom.addEventListener("click", function () {
 
 body.insertBefore(btnRandom, container);
 
+/* // button - darkening
+const btnDarkening = document.createElement("button");
+btnDarkening.textContent = "DARKENING";
+btnDarkening.addEventListener("click", function() {
+    const mouseMove = document.getElementsByClassName("square");
+    for (i = 0; i < mouseMove.length; i++) {
+        mouseMove[i].addEventListener('mouseover', function () {
+            this.style.backgroundColor = "black";
+            if (this.style.opacity <= 0.9) {
+                this.style.opacity = +this.style.opacity + 0.1;
+            }
+        })
+    }
+})
+
+body.insertBefore(btnDarkening, container);
+ */
+
 // START
 gridStart();
 paintBlack();
