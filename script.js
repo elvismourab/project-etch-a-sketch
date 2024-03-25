@@ -36,11 +36,8 @@ btnGrid.addEventListener("click", function () {
         squareSize = prompt("Define the number of squareSize per side for the new grid (<= 100): ");
         if (squareSize > 100) alert("The value should be <= 100");
     } while (squareSize > 100);
-
-    //container.innerHTML = "";
     container.textContent = "";
     gridStart(squareSize);
-
 })
 
 body.insertBefore(btnGrid, container);
@@ -84,18 +81,14 @@ function changeColor(color) {
             switch(color) {
                 case 1 :
                     this.style.backgroundColor = "black";
-                    this.style.opacity = "";
                     break;
                 case 2 :
                     this.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-                    this.style.opacity = "";
                     break;
                 case 3 :
                     this.style.backgroundColor = "black";
-                    console.log(this.style.opacity);
-                    if (this.style.opacity == "") this.style.opacity = 0;
                     if (this.style.opacity <= 0.9) {
-                        this.style.opacity = parseFloat(this.style.opacity) + 0.1;
+                        this.style.opacity = +this.style.opacity + 0.1;
                     }
                     break;
             }
