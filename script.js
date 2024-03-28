@@ -1,5 +1,6 @@
 const body = document.querySelector("body");
 const container = document.getElementById("container");
+var squareSize = 16;
 
 // 2. 16x16 grid
 function gridStart(grid = 16) {
@@ -27,7 +28,6 @@ function gridStart(grid = 16) {
 const btnGrid = document.getElementById("btnGrid");
 btnGrid.textContent = "NEW GRID";
 btnGrid.addEventListener("click", function () {
-    let squareSize = 16;
     do {
         squareSize = prompt("Define the number of squares per side for the new grid (<= 100): ");
         if (squareSize > 100) alert("The value should be <= 100");
@@ -46,7 +46,7 @@ btnBlack.addEventListener("click", function() {
 })
 body.insertBefore(btnBlack, container);
 
-// button - random color
+// button - rainbow color
 const btnRainbow = document.getElementById("btnRainbow");
 btnRainbow.textContent = "RAINBOW PEN";
 btnRainbow.addEventListener("click", function () {
@@ -61,6 +61,15 @@ btnShading.addEventListener("click", function() {
     changeColor(3);
 })
 body.insertBefore(btnShading, container);
+
+// button - clean grid
+const btnClean = document.getElementById("btnClean");
+btnClean.textContent = "CLEAN";
+btnClean.addEventListener("click", function() {
+    container.textContent = "";
+    gridStart(squareSize);
+})
+body.insertBefore(btnClean, container);
 
 // switch color function
 function changeColor(color) {
