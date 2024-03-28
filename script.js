@@ -1,9 +1,5 @@
-// create parent div
 const body = document.querySelector("body");
-
-const container = document.createElement("div");
-container.setAttribute("id", "container");
-body.appendChild(container);
+const container = document.getElementById("container");
 
 // 2. 16x16 grid
 function gridStart(grid = 16) {
@@ -28,7 +24,7 @@ function gridStart(grid = 16) {
 }
 
 // 4 - button - div size
-const btnGrid = document.createElement("button");
+const btnGrid = document.getElementById("btnGrid");
 btnGrid.textContent = "NEW GRID";
 btnGrid.addEventListener("click", function () {
     let squareSize = 16;
@@ -40,39 +36,31 @@ btnGrid.addEventListener("click", function () {
     container.textContent = "";
     gridStart(squareSize);
 })
-
 body.insertBefore(btnGrid, container);
 
 // button - black color
-const btnBlack = document.createElement("button");
+const btnBlack = document.getElementById("btnBlack");
 btnBlack.textContent = "BLACK PEN";
 btnBlack.addEventListener("click", function() {
     changeColor(1);
 })
-
 body.insertBefore(btnBlack, container);
 
 // button - random color
-const btnRandom = document.createElement("button");
-btnRandom.textContent = "RAINBOW PEN";
-btnRandom.addEventListener("click", function () {
+const btnRainbow = document.getElementById("btnRainbow");
+btnRainbow.textContent = "RAINBOW PEN";
+btnRainbow.addEventListener("click", function () {
     changeColor(2);
 })
+body.insertBefore(btnRainbow, container);
 
-body.insertBefore(btnRandom, container);
-
-// button - darkening
-const btnDarkening = document.createElement("button");
-btnDarkening.textContent = "DARKENING PEN";
-btnDarkening.addEventListener("click", function() {
+// button - shading
+const btnShading = document.getElementById("btnShading");
+btnShading.textContent = "SHADING PEN";
+btnShading.addEventListener("click", function() {
     changeColor(3);
 })
-
-body.insertBefore(btnDarkening, container);
-
-
-// START
-gridStart();
+body.insertBefore(btnShading, container);
 
 // switch color function
 function changeColor(color) {
@@ -96,3 +84,6 @@ function changeColor(color) {
         })
     }
 }
+
+// START
+gridStart();
