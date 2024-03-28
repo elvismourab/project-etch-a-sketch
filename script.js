@@ -73,10 +73,11 @@ body.insertBefore(btnClean, container);
 
 // switch color function
 function changeColor(color) {
-    const mouseMove = document.getElementsByClassName("square");
-    for (let i = 0; i < mouseMove.length; i++) {
-        mouseMove[i].addEventListener("mouseover", function () {
-            // !
+    let squares = document.getElementsByClassName("square");
+    for (let i = 0; i < squares.length; i++) {
+        let newSquare = squares[i].cloneNode(true);
+        squares[i].parentNode.replaceChild(newSquare, squares[i]);
+        newSquare.addEventListener("mouseover", function () {
             switch (color) {
                 case 1:
                     this.style.backgroundColor = "black";
