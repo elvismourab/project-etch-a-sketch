@@ -65,6 +65,17 @@ btnClean.addEventListener("click", function () {
 })
 body.insertBefore(btnClean, container);
 
+// change button color when clicked func
+let prevButton = null;
+
+function btnColor(button) {
+    if (prevButton) {
+        prevButton.style.backgroundColor = "white";
+    }
+    button.style.backgroundColor = "blue";
+    prevButton = button;
+}
+
 // switch color function
 function changeColor(color) {
     let squares = document.getElementsByClassName("square");
