@@ -25,3 +25,12 @@ button {
     border: 2px solid darkred;
     background-color: white;
 }
+
+.footer,
+a {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    text-decoration: none;
+}
