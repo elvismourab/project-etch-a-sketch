@@ -15,7 +15,7 @@ function gridStart(grid = 16) {
             square.style.height = (container.offsetHeight / grid) + "px";
             square.style.width = (container.offsetWidth / grid) + "px";
             square.style.flex = `1 1 calc(100% / ${grid})`;
-
+            
             fragment.appendChild(square);
         }
 
@@ -41,7 +41,7 @@ body.insertBefore(btnGrid, container);
 // button - black color
 const btnBlack = document.getElementById("btnBlack");
 btnBlack.textContent = "BLACK PEN";
-btnBlack.addEventListener("click", function() {
+btnBlack.addEventListener("click", function () {
     changeColor(1);
 })
 body.insertBefore(btnBlack, container);
@@ -57,7 +57,7 @@ body.insertBefore(btnRainbow, container);
 // button - shading
 const btnShading = document.getElementById("btnShading");
 btnShading.textContent = "SHADING PEN";
-btnShading.addEventListener("click", function() {
+btnShading.addEventListener("click", function () {
     changeColor(3);
 })
 body.insertBefore(btnShading, container);
@@ -65,7 +65,7 @@ body.insertBefore(btnShading, container);
 // button - clean grid
 const btnClean = document.getElementById("btnClean");
 btnClean.textContent = "CLEAN";
-btnClean.addEventListener("click", function() {
+btnClean.addEventListener("click", function () {
     container.textContent = "";
     gridStart(squareSize);
 })
@@ -75,17 +75,20 @@ body.insertBefore(btnClean, container);
 function changeColor(color) {
     const mouseMove = document.getElementsByClassName("square");
     for (let i = 0; i < mouseMove.length; i++) {
-        mouseMove[i].addEventListener("mouseover", function() {
-            switch(color) {
-                case 1 :
+        mouseMove[i].addEventListener("mouseover", function () {
+            // !
+            switch (color) {
+                case 1:
                     this.style.backgroundColor = "black";
+                    this.style.opacity = 1;
                     break;
-                case 2 :
-                    this.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+                case 2:
+                    this.style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+                    this.style.opacity = 1;
                     break;
-                case 3 :
+                case 3:
                     this.style.backgroundColor = "black";
-                    if (this.style.opacity <= 0.9) {
+                    if (this.style.opacity < 1) {
                         this.style.opacity = +this.style.opacity + 0.1;
                     }
                     break;
