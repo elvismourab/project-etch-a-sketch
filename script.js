@@ -33,9 +33,10 @@ btnGrid.textContent = "NEW GRID";
 btnGrid.addEventListener("click", function () {
     let squareSize = 16;
     do {
-        squareSize = prompt("Define the number of squareSize per side for the new grid (<= 100): ");
+        squareSize = prompt("Define the number of squares per side for the new grid (<= 100): ");
         if (squareSize > 100) alert("The value should be <= 100");
-    } while (squareSize > 100);
+        if (squareSize == null) return;
+    } while (squareSize > 100 || squareSize < 1);
     container.textContent = "";
     gridStart(squareSize);
 })
